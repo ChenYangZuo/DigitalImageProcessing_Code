@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/DigitalImageProcessing_Code.dir/main.cpp.o  -o DigitalImageProcessing_Code 
