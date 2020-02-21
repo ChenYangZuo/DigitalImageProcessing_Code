@@ -1,7 +1,10 @@
+#include <opencv2/opencv.hpp>
 #include <iostream>
-
-int main() {
-    using namespace std;
-    cout << "Hello, World!";
+using namespace cv;
+int main()
+{
+    Mat img = imread("/home/zuochenyang/Desktop/DigitalImageProcessing_Code/test.jpg");
+    imshow("test", img);
+    waitKey(0);
     return 0;
 }

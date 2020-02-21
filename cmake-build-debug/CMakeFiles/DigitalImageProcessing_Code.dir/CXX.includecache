@@ -7,6 +7,8 @@
 #IncludeRegexTransform: 
 
 /home/zuochenyang/Desktop/DigitalImageProcessing_Code/main.cpp
+opencv2/opencv.hpp
+-
 iostream
 -
 
