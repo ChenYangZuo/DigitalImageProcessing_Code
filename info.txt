@@ -1,3 +1,0 @@
-find_package(OpenCV REQUIRED)
-
-target_link_libraries(DigitalImageProcessing_Code ${OpenCV_LIBS})
