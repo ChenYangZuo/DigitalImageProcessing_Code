@@ -3,7 +3,8 @@ project(DigitalImageProcessing_Code)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(DigitalImageProcessing_Code main.cpp)
+
+add_executable(DigitalImageProcessing_Code 20200228.cpp)
 
 find_package(OpenCV REQUIRED)
 
