@@ -63,24 +63,15 @@ int exercise_3(){
     return 0;
 }
 
-int exercise_5(float his[]){
-    Mat img = Mat(400, 250, CV_8UC3);
+int exercise_5(float his[],int width,int height){
+    Mat img = Mat(400, 280, CV_8UC3);
     Point pt1,pt2;
-//    Point pt3,pt4,pt5;
-//    pt3.x=4;
-//    pt3.y=394;
-//    pt4.x=4;
-//    pt4.y=4;
-//    pt5.x=245;
-//    pt5.y=394;
-//    line(img,pt3,pt4,CV_RGB(255,0,0),2,8,0);
-//    line(img,pt3,pt5,CV_RGB(255,0,0),2,8,0);
-    //绘制坐标轴
+
     for(int i=0;i<256;i++){
         pt1.x = 6 + i;
         pt1.y = 394;
         pt2.x = 6 + i;
-        pt2.y = 394 - (his[i]/2073600)*19200*3;
+        pt2.y = 394 - his[i]/(width*height)*390*30;
         line(img,pt1,pt2,CV_RGB(255,255,255),1,8,0);
     }
 
@@ -109,7 +100,7 @@ int exercise_4(){
     for(int k=0;k<256;k++){
         cout<< k << ":" << histgram[k] << endl;
     }
-    exercise_5(histgram);
+    exercise_5(histgram,width,height);
 //    waitKey(0);
     return 0;
 
