@@ -66,7 +66,7 @@ int exercise_3(){
 int exercise_5(float his[],int width,int height){
     Mat img = Mat(400, 280, CV_8UC3);
     Point pt1,pt2;
-    int max=0;
+    float max=0;
     for(int k=0;k<256;k++){
         if(his[k]>max)
             max=his[k];
@@ -76,7 +76,7 @@ int exercise_5(float his[],int width,int height){
         pt1.x = 6 + i;
         pt1.y = 394;
         pt2.x = 6 + i;
-        pt2.y = 394 - his[i]/(max)*390;
+        pt2.y = 394 - his[i]/max*390;
         line(img,pt1,pt2,CV_RGB(255,255,255),1,8,0);
     }
 
