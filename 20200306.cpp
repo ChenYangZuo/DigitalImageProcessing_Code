@@ -64,14 +64,31 @@ int exercise_3(){
 }
 
 int exercise_4(){
+    Mat img = imread("/home/zuochenyang/Desktop/DigitalImageProcessing_Code/test.jpg",0);
+//    imshow("exercise_4",img);
+    float histgram[256]={0};
+    int height = img.rows;
+    int width = img.cols;
+    for(int i=0;i<height;i++){
+        for(int j=0;j<width;j++){
+            histgram[img.at<Vec3b>(i,j)[0]]++;
+        }
+    }
+
+    for(int k=0;k<256;k++){
+        cout<< k << ":" << histgram[k] << endl;
+    }
+
+//    waitKey(0);
+    return 0;
 
 }
 
 int main(){
     cout << "Hello,World!";
 //    exercise_1();
-    exercise_3();
+//    exercise_3();
 //    exercise_2();
-
+    exercise_4();
     return 0;
 }
