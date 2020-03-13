@@ -7,13 +7,12 @@ using namespace std;
 int exercise_1();
 int exercise_2();
 int exercise_3();
-
+void threshod_Mat(int th,void* data);
 
 int main(){
 //    exercise_1();
 //    exercise_2();
     exercise_3();
-
 
     return 0;
 }
@@ -51,7 +50,6 @@ int exercise_1(){
 
     return 0;
 
-
 }
 
 int exercise_2(){
@@ -68,5 +66,30 @@ int exercise_2(){
 }
 
 int exercise_3(){
+    Mat srcMat;
+    Mat gryMat;
+    int lowTh = 30;
+    int maxTh = 255;
+
+    srcMat = imread("/home/zuochenyang/Desktop/DigitalImageProcessing_Code/test2.jpg");
+    if(!srcMat.data){
+        cout << "ERROR1" << endl;
+        return 0;
+    }
+
+    cvtColor(srcMat,gryMat,CV_BGR2GRAY);
+    imshow("test",gryMat);
+    createTrackbar("TEST","test",&lowTh,maxTh,threshod_Mat,&gryMat);
+    waitKey(0);
+
+    return 0;
+
+}
+
+void threshod_Mat(int th,void* data){
+    Mat src = *(Mat*)(data);
+    Mat dst;
+    threshold(src,dst,th,255,0);
+    imshow("test",dst);
 
 }

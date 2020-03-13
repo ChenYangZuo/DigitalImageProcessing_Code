@@ -14,6 +14,7 @@ int exercise_1(){
     imshow("red",R);
     imshow("green",G);
     imshow("blue",B);
+    imshow("src",img);
     waitKey(0);
 }
 
@@ -81,10 +82,6 @@ int exercise_5(float his[],int width,int height){
     }
 
 
-
-
-
-
     imshow("exercise_5",img);
     waitKey(0);
     return 0;
@@ -115,9 +112,9 @@ int exercise_4(){
 
 int main(){
     cout << "Hello,World!";
-//    exercise_1();
+    exercise_1();
 //    exercise_3();
 //    exercise_2();
-    exercise_4();
+//    exercise_4();
     return 0;
 }
