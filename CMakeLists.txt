@@ -4,7 +4,7 @@ project(DigitalImageProcessing_Code)
 set(CMAKE_CXX_STANDARD 11)
 
 
-add_executable(DigitalImageProcessing_Code 20200306.cpp)
+add_executable(DigitalImageProcessing_Code 20200313.cpp)
 
 
 
