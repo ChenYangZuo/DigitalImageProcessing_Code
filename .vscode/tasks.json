@@ -1,0 +1,45 @@
+{
+  "version": "2.0.0",
+  "command": "g++",
+  "args": [
+      "-g", 
+      "-std=c++11", 
+      "${file}", 
+      "-o", 
+      "${fileBasenameNoExtension}.o",  
+      "-I", "D:\\Program Files\\OpenCV-MinGW-Build-OpenCV-4.1.1-x64\\include",
+      "-I", "D:\\Program Files\\OpenCV-MinGW-Build-OpenCV-4.1.1-x64\\include\\opencv2",
+      "-L", "D:\\Program Files\\OpenCV-MinGW-Build-OpenCV-4.1.1-x64\\x64\\mingw\\lib",
+      "-l", "libopencv_core411",
+      "-l", "libopencv_imgproc411",
+      "-l", "libopencv_imgcodecs411",
+      "-l", "libopencv_video411",
+      "-l", "libopencv_ml411",
+      "-l", "libopencv_highgui411",
+      "-l", "libopencv_objdetect411",
+      "-l", "libopencv_flann411",
+      "-l", "libopencv_imgcodecs411",
+      "-l", "libopencv_photo411",
+      "-l", "libopencv_videoio411"
+
+  ],// 编译命令参数
+  "problemMatcher":{
+      "owner": "cpp",
+      "fileLocation":[
+          "relative",
+          "${workspaceFolder}"
+      ],
+      "pattern":[
+          {
+              "regexp": "^([^\\\\s].*)\\\\((\\\\d+,\\\\d+)\\\\):\\\\s*(.*)$",
+              "file": 1,
+              "location": 2,
+              "message": 3
+          }
+      ]
+  },
+  "group": {
+      "kind": "build",
+      "isDefault": true
+  }
+}
