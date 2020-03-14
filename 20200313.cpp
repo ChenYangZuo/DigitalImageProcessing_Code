@@ -1,4 +1,5 @@
 #include <opencv2/opencv.hpp>
+#include <opencv2/imgproc/types_c.h>
 #include <iostream>
 
 using namespace cv;
@@ -10,9 +11,9 @@ int exercise_3();
 void threshod_Mat(int th,void* data);
 
 int main(){
-//    exercise_1();
-//    exercise_2();
-    exercise_3();
+    exercise_1();
+    // exercise_2();
+    // exercise_3();
 
     return 0;
 }
@@ -36,6 +37,8 @@ int exercise_1(){
         Mat detectMat;
 
         cap >> frame;
+
+        // frame = imread("test3.jpg");
 
         cvtColor(frame,hsvMat,COLOR_BGR2HSV);
         frame.copyTo(detectMat);
