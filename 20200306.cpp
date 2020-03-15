@@ -4,6 +4,26 @@
 using namespace cv;
 using namespace std;
 
+int exercise_1();
+//RGB通道分离
+int exercise_2();
+//调用摄像头
+int exercise_3();
+//画图测试
+int exercise_4();
+//计算直方图信息
+int exercise_5(float his[],int width,int height);
+//绘制直方图
+
+int main(){
+    cout << "Hello,World!";
+    exercise_1();
+    // exercise_2();
+    // exercise_3();
+    // exercise_4();
+    return 0;
+}
+
 int exercise_1(){
     Mat img = imread("/home/zuochenyang/Desktop/DigitalImageProcessing_Code/test1.png");
     vector<Mat> channels;
@@ -64,6 +84,24 @@ int exercise_3(){
     return 0;
 }
 
+int exercise_4(){
+    Mat img = imread("/home/zuochenyang/Desktop/DigitalImageProcessing_Code/test.jpg",0);
+    float histgram[256]={0};
+    int height = img.rows;
+    int width = img.cols;
+    for(int i=0;i<height;i++){
+        for(int j=0;j<width;j++){
+            histgram[img.at<Vec3b>(i,j)[0]]++;
+        }
+    }
+
+    for(int k=0;k<256;k++){
+        cout<< k << ":" << histgram[k] << endl;
+    }
+    exercise_5(histgram,width,height);
+    return 0;
+}
+
 int exercise_5(float his[],int width,int height){
     Mat img = Mat(400, 280, CV_8UC3);
     Point pt1,pt2;
@@ -84,37 +122,5 @@ int exercise_5(float his[],int width,int height){
 
     imshow("exercise_5",img);
     waitKey(0);
-    return 0;
-}
-
-int exercise_4(){
-    Mat img = imread("/home/zuochenyang/Desktop/DigitalImageProcessing_Code/test.jpg",0);
-//    imshow("exercise_4",img);
-    float histgram[256]={0};
-    int height = img.rows;
-    int width = img.cols;
-    for(int i=0;i<height;i++){
-        for(int j=0;j<width;j++){
-            histgram[img.at<Vec3b>(i,j)[0]]++;
-        }
-    }
-
-    for(int k=0;k<256;k++){
-        cout<< k << ":" << histgram[k] << endl;
-    }
-    exercise_5(histgram,width,height);
-//    waitKey(0);
-    return 0;
-
-}
-
-
-
-int main(){
-    cout << "Hello,World!";
-    exercise_1();
-//    exercise_3();
-//    exercise_2();
-//    exercise_4();
     return 0;
 }

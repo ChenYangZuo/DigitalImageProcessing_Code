@@ -1,9 +1,26 @@
 #include <opencv2/opencv.hpp>
 #include <iostream>
 
-
 using namespace cv;
 using namespace std;
+
+int exercise_1();
+//灰度计算
+int exercise_2();
+//灰度打开
+int exercise_3();
+//二值化
+int exercise_4();
+//两种拷贝方式
+
+int main(){
+    cout << "Hello,World!";
+    exercise_1();
+    // exercise_2();
+    // exercise_3();
+    // exercise_4();
+    return 0;
+}
 
 int exercise_1(){
     Mat img = imread("/home/zuochenyang/Desktop/DigitalImageProcessing_Code/test.jpg");
@@ -83,18 +100,6 @@ int exercise_4(){
     imshow("test4_deep",deepMat);
     imshow("test4_shallow",shallowMat);
     waitKey(0);
-
-    return 0;
-}
-
-int main(){
-
-    cout << "Hello,World!";
-
-    exercise_1();
-    exercise_2();
-    exercise_3();
-    exercise_4();
 
     return 0;
 }

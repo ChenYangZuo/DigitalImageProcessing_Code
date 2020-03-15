@@ -6,9 +6,12 @@ using namespace cv;
 using namespace std;
 
 int exercise_1();
+//肤色识别
 int exercise_2();
+//两种二值化算法
 int exercise_3();
 void threshod_Mat(int th,void* data);
+//回调函数的用法
 
 int main(){
     exercise_1();
