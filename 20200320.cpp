@@ -108,6 +108,7 @@ int exercise_4(){
     Mat statsMat;//状态矩阵
     Mat centroidsMat;//连通域中心
     int count;
+    int result = 0;
 
     threshold(src,result1,80,255,THRESH_OTSU);//二值化
     bitwise_not(result1,result1);//两级反转
@@ -116,12 +117,18 @@ int exercise_4(){
     morphologyEx(result2,result3,MORPH_CLOSE,kernel0);//膨胀
 
     count = connectedComponentsWithStats(result2,labelsMat,statsMat,centroidsMat);
-    cout << count-2 << endl;//减去左边的黑条
+    // cout << format(statsMat,Formatter::FMT_PYTHON);
 
-    imshow("test_0",result1);
-    imshow("test_1",result2);
+    for(int i=0;i<count;i++){
+        if(statsMat.at<int>(i,4) > 4500 && statsMat.at<int>(i,4) < 8000)
+            result++;
+    }
+
+    cout << result << endl;
+
+    // imshow("test_0",result1);
+    // imshow("test_1",result2);
     imshow("test_2",result3);
-
     waitKey(0);
 
 
