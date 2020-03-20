@@ -110,12 +110,13 @@ int exercise_4(){
     int count;
 
     threshold(src,result1,80,255,THRESH_OTSU);//二值化
+    bitwise_not(result1,result1);//两级反转
 
-    morphologyEx(result1,result2,1,kernel0);//腐蚀
-    morphologyEx(result2,result3,0,kernel);//膨胀
+    morphologyEx(result1,result2,MORPH_OPEN,kernel0);//腐蚀
+    morphologyEx(result2,result3,MORPH_CLOSE,kernel0);//膨胀
 
     count = connectedComponentsWithStats(result2,labelsMat,statsMat,centroidsMat);
-    cout << count-1 << endl;
+    cout << count-2 << endl;//减去左边的黑条
 
     imshow("test_0",result1);
     imshow("test_1",result2);
