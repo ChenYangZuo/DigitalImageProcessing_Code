@@ -8,12 +8,14 @@ using namespace std;
 int exercise_1();
 int exercise_2();
 int exercise_3();
+int exercise_4();
 
 int main(){
     cout << "Hello,World!" << endl;
     // exercise_1();
     // exercise_2();
-    exercise_3();
+    // exercise_3();
+    exercise_4();
     return 0;
 }
 
@@ -66,16 +68,16 @@ int exercise_2(){
 int exercise_3(){
     Mat src = imread("IMG_1989.JPG",0);
     Mat result1,result2,result3;
-    Mat kernel = getStructuringElement(2,Size(10,10));
+    Mat kernel = getStructuringElement(2,Size(10,10));//生成10*10的圆
     Mat labelsMat;//标签号
     Mat statsMat;//状态矩阵
     Mat centroidsMat;//连通域中心
     int count;
 
     threshold(src,result1,100,255,THRESH_OTSU);
-    bitwise_not(result1,result1);
+    bitwise_not(result1,result1);//两级反转
 
-    morphologyEx(result1,result2,2,kernel);
+    morphologyEx(result1,result2,2,kernel);//开运算
 
     count = connectedComponentsWithStats(result2,labelsMat,statsMat,centroidsMat);
 
@@ -93,6 +95,34 @@ int exercise_3(){
     cout << count-1 << endl;
 
     waitKey(0);
+
+    return 0;
+}
+
+int exercise_4(){
+    Mat src = imread("clip.png",0);
+    Mat result1,result2,result3;
+    Mat kernel = getStructuringElement(0,Size(25,25));
+    Mat kernel0 = getStructuringElement(0,Size(4,4));
+    Mat labelsMat;//标签号
+    Mat statsMat;//状态矩阵
+    Mat centroidsMat;//连通域中心
+    int count;
+
+    threshold(src,result1,80,255,THRESH_OTSU);//二值化
+
+    morphologyEx(result1,result2,1,kernel0);//腐蚀
+    morphologyEx(result2,result3,0,kernel);//膨胀
+
+    count = connectedComponentsWithStats(result2,labelsMat,statsMat,centroidsMat);
+    cout << count-1 << endl;
+
+    imshow("test_0",result1);
+    imshow("test_1",result2);
+    imshow("test_2",result3);
+
+    waitKey(0);
+
 
     return 0;
 }
