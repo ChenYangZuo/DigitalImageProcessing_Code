@@ -14,9 +14,9 @@ void threshod_Mat(int th,void* data);
 //回调函数的用法
 
 int main(){
-    exercise_1();
+    // exercise_1();
     // exercise_2();
-    // exercise_3();
+    exercise_3();
 
     return 0;
 }
@@ -78,7 +78,7 @@ int exercise_3(){
     int lowTh = 30;
     int maxTh = 255;
 
-    srcMat = imread("/home/zuochenyang/Desktop/DigitalImageProcessing_Code/test2.jpg");
+    srcMat = imread("clip.png");
     if(!srcMat.data){
         cout << "ERROR1" << endl;
         return 0;
