@@ -113,8 +113,8 @@ int exercise_4(){
     threshold(src,result1,80,255,THRESH_OTSU);//二值化
     bitwise_not(result1,result1);//两级反转
 
-    morphologyEx(result1,result2,MORPH_OPEN,kernel0);//腐蚀
-    morphologyEx(result2,result3,MORPH_CLOSE,kernel0);//膨胀
+    morphologyEx(result1,result2,MORPH_OPEN,kernel0);
+    morphologyEx(result2,result3,MORPH_CLOSE,kernel0);
 
     count = connectedComponentsWithStats(result2,labelsMat,statsMat,centroidsMat);
     // cout << format(statsMat,Formatter::FMT_PYTHON);
