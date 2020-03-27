@@ -12,6 +12,9 @@ int exercise_2();
 int exercise_3();
 //戴sigma参数的滤波
 int exercise_4();
+//边缘识别
+int exercise_5();
+//磨皮
 
 int main(){
     cout<<"Hello,World!"<<endl;
@@ -19,7 +22,7 @@ int main(){
     // exercise_2();
     // exercise_3();
     // exercise_4();
-
+    exercise_5();
 
     return 0;
 }
@@ -70,11 +73,45 @@ int exercise_4(){
     while(true){
         Mat frame,result1,result2;
         cap >> frame;
-        Sobel(frame,result1,0,1,0,3);
-        Sobel(frame,result2,0,0,1,3);
+        Sobel(frame,result1,CV_16SC1,1,0,3);
+        Sobel(frame,result2,CV_16SC1,0,1,3);
         imshow("src",frame);
         imshow("Sobel1",result1);
         imshow("Sobel2",result2);
+        waitKey(30);
+    }
+    return 0;
+}
+
+int exercise_5(){
+    VideoCapture cap(0);
+    // double scale = 0.5;
+    double i_minH = 0;
+    double i_maxH = 20;
+
+    double i_minS = 43;
+    double i_maxS = 255;
+
+    double i_minV = 55;
+    double i_maxV = 255;
+
+    while(true){
+        Mat frame,hsvMat,mask,detectMat,origin;
+
+        cap >> frame;
+        cvtColor(frame,hsvMat,COLOR_BGR2HSV);
+        frame.copyTo(origin);
+
+
+        inRange(hsvMat,Scalar(i_minH,i_minS,i_minV),Scalar(i_maxH,i_maxS,i_maxV),mask);
+
+        GaussianBlur(frame,detectMat,Size(5,5),3,3);
+
+        detectMat.copyTo(frame,mask);
+
+        imshow("2",frame);
+        imshow("1",origin);
+
         waitKey(30);
     }
     return 0;
