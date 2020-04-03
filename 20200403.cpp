@@ -14,6 +14,8 @@ int exercise_3();
 int exercise_4();
 //投影变换
 int exercise_5_1();
+//自动校正旋转
+int exercise_6();
 
 int main(){
     cout<<"Hello,World!"<<endl;
@@ -22,7 +24,9 @@ int main(){
     // exercise_2();
     // exercise_3();
     // exercise_4();
-    exercise_5_1();
+    // exercise_5_1();
+    exercise_6();
+
     return 0;
 }
 
@@ -197,5 +201,26 @@ int exercise_5_1(){
     imshow("src",src);
     imshow("dst",dst);
     waitKey(0);
+
+}
+
+int exercise_6(){
+    Mat src = imread("./src/lena.jpg");
+    Mat dst;
+    int height = src.rows;
+    int width = src.cols;
+    float angle = 15.0;
+
+    float scale = 1/(sin((angle*3.14)/180)+cos((angle*3.14)/180));
+    cout<<scale;
+
+    Point2f center(src.cols*0.5,src.rows*0.5);
+    Mat affine_matrix = getRotationMatrix2D(center,angle,scale);
+
+    warpAffine(src,dst,affine_matrix,src.size());
+    imshow("src",src);
+    imshow("dst",dst);
+    waitKey(0);
+    return 0;
 
 }
