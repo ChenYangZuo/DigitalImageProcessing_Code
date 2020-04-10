@@ -14,7 +14,7 @@ int main(){
 
     // exercise_1();
     // exercise_2();
-    // exercise_3();
+    exercise_3();
 
     return 0;
 }
@@ -72,7 +72,7 @@ int exercise_3(){
     // imshow("test",output);
     // waitKey(0);
 
-    HoughLinesP(output,dst,1.0,CV_PI/180,40,30,20);
+    HoughLinesP(output,dst,1.0,CV_PI/180,20,3,8);
 
 
     for(int i = 0;i<dst.size();i++){
