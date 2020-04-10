@@ -74,14 +74,13 @@ int exercise_3(){
 
     HoughLinesP(output,dst,1.0,CV_PI/180,20,3,8);
 
-
     for(int i = 0;i<dst.size();i++){
         Point pt1,pt2;
         pt1.x = dst[i][0];
         pt1.y = dst[i][1];
         pt2.x = dst[i][2];
         pt2.y = dst[i][3];
-        cout << dst[i][0]<<","<<dst[i][1]<<" - "<<dst[i][2]<<","<<dst[i][3]<<endl;
+        cout << dst[i][0] << "," << dst[i][1] << " - " << dst[i][2] << "," << dst[i][3] << endl;
         line(src,pt1,pt2,Scalar(0,0,255),2,8);
     }
 
