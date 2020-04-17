@@ -12,6 +12,10 @@ int exercise_3();
 int main(){
     cout << "Hello,World!" << endl;
 
+
+    extern int Canny_th;
+    
+
     // exercise_1();
     // exercise_2();
     exercise_3();
@@ -66,11 +70,29 @@ int exercise_2(){
 
 int exercise_3(){
     Mat src = imread("./src/metal-part-distorted-03.png");
+    
+    int Canny_minth=20;
+    int Canny_maxth=150;
+    //推荐的高低阈值比为2:1或3:1
+    int Hough_th=0;
+    int minLength=0;
+    int maxGap=0;
+
+    createTrackbar("Canny","test",&Canny_minth,Canny_maxth,houghDispose,&src);
+    createTrackbar("Canny","test",&Hough_th,100,houghDispose,&src);
+    createTrackbar("Canny","test",&minLength,50,houghDispose,&src);
+    createTrackbar("Canny","test",&maxGap,50,houghDispose,&src);
+
+
+    waitKey(0);
+    return 0;
+}
+
+void houghDispose(int th,void* data){
     Mat output;
     vector<Vec4i> dst;
+    Mat src = *(Mat*)(data);
     Canny(src,output,100,170);
-    // imshow("test",output);
-    // waitKey(0);
 
     HoughLinesP(output,dst,1.0,CV_PI/180,20,3,8);
 
@@ -80,12 +102,9 @@ int exercise_3(){
         pt1.y = dst[i][1];
         pt2.x = dst[i][2];
         pt2.y = dst[i][3];
-        cout << dst[i][0] << "," << dst[i][1] << " - " << dst[i][2] << "," << dst[i][3] << endl;
+        // cout << dst[i][0] << "," << dst[i][1] << " - " << dst[i][2] << "," << dst[i][3] << endl;
         line(src,pt1,pt2,Scalar(0,0,255),2,8);
     }
 
     imshow("test",src);
-    waitKey(0);
-
-    return 0;
 }
