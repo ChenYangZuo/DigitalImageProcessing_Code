@@ -49,9 +49,9 @@ vector<float> getHog(Mat img){
 int main(){
     cout << "Hello,World!" << endl;
 
-    Mat src = imread("./src/hogTemplate.jpg");
-    Mat img1 = imread("./src/img1.jpg");
-    Mat img2 = imread("./src/img2.jpg");
+    Mat src = imread("./src/hogTemplate.jpg",0);
+    Mat img1 = imread("./src/img1.jpg",0);
+    Mat img2 = imread("./src/img2.jpg",0);
 
     vector<float> hist;
     vector<float> hist1;
