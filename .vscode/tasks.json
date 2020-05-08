@@ -6,7 +6,7 @@
       "-std=c++11", 
       "${file}", 
       "-o", 
-      "${fileBasenameNoExtension}.o",  
+      "${fileBasenameNoExtension}.exe",  
       "-I", "D:\\Program Files\\OpenCV-MinGW-Build-OpenCV-4.1.1-x64\\include",
       "-I", "D:\\Program Files\\OpenCV-MinGW-Build-OpenCV-4.1.1-x64\\include\\opencv2",
       "-L", "D:\\Program Files\\OpenCV-MinGW-Build-OpenCV-4.1.1-x64\\x64\\mingw\\lib",
