@@ -18,7 +18,6 @@ int main(){
     cout << "Hello,World!" << endl;
     // dftDemo();
     // ifftDemo();
-	test();
     return 0;
 }
 
@@ -216,7 +215,7 @@ int ifftDemo(){
 	//imshow("原图灰度图", src);
 	//imshow("频谱幅度", mag);
 	mag = mag * 255;
-	imwrite("D:\\Programme\\C Language\\DigitalImageProcessing_Code/原频谱.jpg", mag);
+	imwrite("原频谱.jpg", mag);
 	/*--------------------------------------------------*/
 
 	mag = mag / 255;
@@ -228,7 +227,7 @@ int ifftDemo(){
 	mag= mag.mul(mask);
 
 	proceMag = mag * 255;
-	imwrite("D:\\Programme\\C Language\\DigitalImageProcessing_Code/处理后频谱.jpg", proceMag);
+	imwrite("处理后频谱.jpg", proceMag);
 
 	//前述步骤反着来一遍，目的是为了逆变换回原图
 	Mat q00(mag, Rect(0, 0, cx, cy));   	
@@ -269,9 +268,4 @@ int ifftDemo(){
 
 	return 0;
 
-}
-
-int test(){
-
-	return 0;
 }
