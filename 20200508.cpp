@@ -17,7 +17,7 @@ int test();
 int main(){
     cout << "Hello,World!" << endl;
     // dftDemo();
-    // ifftDemo();
+    ifftDemo();
     return 0;
 }
 
@@ -250,9 +250,8 @@ int ifftDemo(){
 	merge(planes, 2, complexImg);//将实部虚部合并
 
 
-	//-----------------------傅里叶的逆变换-----------------------------------
+	//傅里叶的逆变换
 	Mat ifft(Size(src.cols, src.rows), CV_8UC1);
-	//傅里叶逆变换
 	idft(complexImg, ifft, DFT_REAL_OUTPUT);
 	normalize(ifft, ifft, 0, 1, CV_MINMAX);
 
