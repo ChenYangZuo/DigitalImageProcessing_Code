@@ -28,7 +28,7 @@ Mat gamma(Mat src,float gamma){
     Mat dst = Mat(height,width,src.type());
     int table[256]={0};
     for(int count=0;count<256;count++){
-        table[count]=(pow(count/255.0,gamma)*255 < 255) ? pow(count/255.0,gamma)*255 : 255;
+        table[count]=(pow(count/255.0,gamma)*255 < 255) ? (pow(count/255.0,gamma)*255) : 255;
     }
 
     for(int i=0;i<height;i++){
