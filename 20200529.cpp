@@ -1,5 +1,6 @@
 #include <opencv2/opencv.hpp>
 #include <iostream>
+#include<time.h>
 using namespace cv;
 using namespace std;
 
@@ -32,6 +33,8 @@ vector<float> getHog(const Mat& img){
 }
 
 int main(){
+    clock_t start,finish;
+    start=clock();
     cout << "Hello,World!" << endl;
 
     Mat src = imread("./src/img.png",0);
@@ -90,6 +93,10 @@ int main(){
     rectangle(src,rect,CV_RGB(255,255,255),1,8,0);
 
     // imshow("test",dist);
+    finish=clock();
+    double totaltime=(double)(finish-start)/CLOCKS_PER_SEC;
+    cout<<"运行时间:"<<totaltime<<"秒"<<endl;
+    
     imshow("test",src);
     waitKey(0);
     
