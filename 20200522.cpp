@@ -7,7 +7,7 @@ using namespace std;
 int exercise_1();
 int exercise_2();
 int calculate(vector<Mat> srcMats,Mat &sumMat,Mat &GaussianMat);
-int gaussianThreshold(Mat frame,Mat sumMat,Mat GaussianMat,float weight,Mat &dstMat);
+int gaussianThresholds(Mat frame,Mat sumMat,Mat GaussianMat,float weight,Mat &dstMat);
 
 int main(){
     cout << "Hello,World!" << endl;
