@@ -51,7 +51,7 @@ int main(){
 
     // Mat dist(row-row_t+1,col-col_t+1,CV_8UC1,Scalar(255));
 
-    float distance = 0;
+    
     float min_distance = 0;
 //    int min_x = 0;
 //    int min_y = 0;
@@ -70,7 +70,8 @@ int main(){
     for(int i=0;i<row-row_t;i++){
         for(int j=0;j<col-col_t;j++){
             Mat slide = src(Rect(j,i,col_t,row_t));
-
+            float distance = 0;
+            
             hist1 = getHog(slide);
             for(int k=0;k<hist0.size();k++){
                 distance+=(hist0[k]-hist1[k])*(hist0[k]-hist1[k]);
