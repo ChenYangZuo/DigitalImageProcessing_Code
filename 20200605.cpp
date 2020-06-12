@@ -49,7 +49,7 @@ int exercise_1(){
 }
 
 int exercise_2(){
-    VideoCapture cap("./src/乖巧的泪子.mp4");
+    VideoCapture cap("./src/麻衣学姐.mp4");
 
     while(true){
         Mat src;
