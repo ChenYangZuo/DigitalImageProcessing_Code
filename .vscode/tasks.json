@@ -20,7 +20,8 @@
       "-l", "libopencv_flann411",
       "-l", "libopencv_imgcodecs411",
       "-l", "libopencv_photo411",
-      "-l", "libopencv_videoio411"
+      "-l", "libopencv_videoio411",
+      "-l", "libopencv_dnn411"
 
   ],// 编译命令参数
   "problemMatcher":{

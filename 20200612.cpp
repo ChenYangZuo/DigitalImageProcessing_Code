@@ -1,12 +1,10 @@
-#include <opencv2/opencv.hpp>
-// #include <opencv2/dnn/dnn.hpp>
-#include <opencv2/dnn.hpp>
-// #include <dnn.hpp>
+#include <opencv.hpp>
+#include <dnn.hpp>
 #include <fstream>
 #include <iostream>
 
 #define YOLOV3_VIDEO		"./src/影流之主.mp4"		
-#define OPENPOSE_VIDEO		"./src/影流之主.mp4"	
+#define OPENPOSE_VIDEO		"./src/乐动力test.mp4"	
 
 using namespace cv;
 using namespace std;
@@ -149,11 +147,11 @@ int yoloV3()
 
 
 	//coco数据集的名称文件，80类
-	string classesFile= "H:\\coco.names";
+	string classesFile= "./DeepLearning/coco.names";
 	//yolov3网络模型文件
-	String yolov3_model = "H:\\yolov3.cfg";
+	String yolov3_model = "./DeepLearning/yolov3.cfg";
 	//权重
-	String weights = "H:\\yolov3.weights";
+	String weights = "./DeepLearning/yolov3.weights";
 
 	//将coco.names中的80类名称转换为vector形式
 	std::ifstream classNamesFile(classesFile.c_str());
@@ -172,7 +170,7 @@ int yoloV3()
 
 	cv::dnn::Net net= cv::dnn::readNetFromDarknet(yolov3_model, weights);
 
-	net.setPreferableBackend(DNN_BACKEND_DEFAULT);
+	net.setPreferableBackend(DNN_BACKEND_OPENCV);
 	net.setPreferableTarget(DNN_TARGET_CPU);
 
 	cv::Mat frame;
@@ -334,8 +332,8 @@ int openpose()
 int main(){
     cout << "Hello,World!" << endl;
 
-    yoloV3();
-    // openpose();
+    // yoloV3();
+    openpose();
     
     return 0;
 }
